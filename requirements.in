@@ -1,3 +1,7 @@
 django
 djangorestframework
 djangorestframework-simplejwt
+flake8-django
+isort
+black
+pre-commit
