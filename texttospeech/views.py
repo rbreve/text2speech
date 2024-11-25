@@ -37,3 +37,9 @@ class TTSDeleteView(generics.DestroyAPIView):
 
     def get_queryset(self):
         return TTSConverter.objects.filter(user=self.request.user)
+
+    def get_object(self):
+        obj = super().get_object()
+        if obj.user != self.request.user:
+            raise NotFound("Not found")
+        return obj
