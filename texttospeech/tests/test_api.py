@@ -21,3 +21,9 @@ class TTSRequestTests(APITestCase):
         self.assertEqual(response.data["status"], "Pending")
         self.assertNotEqual(response.data["id"], None)
         self.assertNotEqual(response.data["request_id"], "")
+
+    def test_validation(self):
+        url = reverse("create-tts-request")
+        data = {"text": ""}
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
