@@ -1,4 +1,5 @@
 from django.db import models
+
 from aitools.models import TimeStampedModel
 from users.views import User
 
@@ -8,6 +9,7 @@ TTS_STATUS = [
     ("completed", "Completed"),
     ("failed", "Failed"),
 ]
+
 
 class TTSConverter(TimeStampedModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

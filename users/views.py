@@ -24,6 +24,7 @@ class UserDetailView(generics.RetrieveUpdateAPIView):
     def get_object(self):
         return self.request.user
 
+
 class UserCount(APIView):
     def get(self, request):
         return Response({"count": User.objects.count()})
